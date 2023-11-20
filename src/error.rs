@@ -10,11 +10,11 @@ pub enum ReadError {
     Invalid7z,
     #[snafu(display("CRC validation failed! File corruption suspected."))]
     CrcInvalid,
-    #[snafu(display("The compression method is not supported!"))]
-    MethodUnsupported,
+    #[snafu(display(
+        "A feature has been encountered that is unsupported.\nFeature: {feat}\nReason: {reason}"
+    ))]
+    UnsupportedFeature { feat: String, reason: String },
     #[snafu(display("An I/O error has occurred."))]
     #[snafu(context(false))]
-    Io {
-        source: io::Error
-    }
+    Io { source: io::Error },
 }

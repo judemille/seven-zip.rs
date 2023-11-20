@@ -7,11 +7,21 @@ edition = "2021"
 
 [dependencies]
 aes = "0.8"
+bitfield = "0.14"
 byteorder = "1.5"
 crc = "3.0"
+either = "1.9"
+num_enum = "0.7"
 snafu = "0.7"
 
 [features]
 brotli = []
 
 zstd = []
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"
